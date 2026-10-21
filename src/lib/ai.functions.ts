@@ -11,7 +11,7 @@ const PROMPTS = {
 } as const;
 
 export const runAssistant = createServerFn({ method: "POST" })
-  .inputValidator((d) =>
+  .validator((d) =>
     z
       .object({
         mode: z.enum(["email", "notes", "research"]),
