@@ -24,7 +24,10 @@ export function AiTool({
   const [loading, setLoading] = useState(false);
 
   const submit = async () => {
-    if (input.trim().length < 3) return toast.error("Please add a bit more detail.");
+    if (input.trim().length < 3) {
+      toast.error("Please add a bit more detail.");
+      return;
+    }
     setLoading(true);
     try {
       const res = await run({ data: { mode, input } });
