@@ -1,9 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import { CheckSquare, Mail, NotebookPen, Search, Moon, Sun, Scale } from "lucide-react";
+import { CheckSquare, Mail, NotebookPen, Search, Moon, Sun, Scale, Briefcase } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
   { to: "/", label: "Tasks", icon: CheckSquare },
+  { to: "/cases", label: "Cases", icon: Briefcase },
   { to: "/email", label: "Email Drafts", icon: Mail },
   { to: "/notes", label: "Meeting Notes", icon: NotebookPen },
   { to: "/research", label: "Research", icon: Search },

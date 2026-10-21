@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Plus, Trash2, Calendar } from "lucide-react";
 import { PageHeader } from "@/components/AppShell";
@@ -7,6 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const Route = createFileRoute("/")({
+  validateSearch: (s: Record<string, unknown>): { matter?: string } => {
+    const m = s["matter"];
+    return typeof m === "string" && m ? { matter: m } : {};
+  },
   head: () => ({
     meta: [
       { title: "Brief — Task Manager for Paralegals" },
@@ -34,10 +38,11 @@ const PRIORITY_STYLE: Record<Priority, string> = {
 };
 
 function Tasks() {
+  const { matter: matterFilter } = Route.useSearch();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [title, setTitle] = useState("");
-  const [matter, setMatter] = useState("");
+  const [matter, setMatter] = useState(matterFilter ?? "");
   const [due, setDue] = useState("");
   const [priority, setPriority] = useState<Priority>("medium");
   const [filter, setFilter] = useState<"all" | "open" | "done">("open");
@@ -60,12 +65,16 @@ function Tasks() {
     setDue("");
   };
 
-  const visible = tasks.filter((t) => (filter === "all" ? true : filter === "open" ? !t.done : t.done));
-  const openCount = tasks.filter((t) => !t.done).length;
+  const scoped = matterFilter ? tasks.filter((t) => t.matter.trim().toLowerCase() === matterFilter.trim().toLowerCase()) : tasks;
+  const visible = scoped.filter((t) => (filter === "all" ? true : filter === "open" ? !t.done : t.done));
+  const openCount = scoped.filter((t) => !t.done).length;
 
   return (
     <>
-      <PageHeader title="Tasks" subtitle={`${openCount} open ${openCount === 1 ? "task" : "tasks"} across your matters.`} />
+      <PageHeader title={matterFilter ? `Tasks · ${matterFilter}` : "Tasks"} subtitle={`${openCount} open ${openCount === 1 ? "task" : "tasks"}${matterFilter ? " for this case." : " across your matters."}`} />
+      {matterFilter && (
+        <Link to="/" search={{}} className="-mt-6 mb-6 inline-block text-xs text-primary hover:underline">Show all tasks</Link>
+      )}
 
       <form onSubmit={add} className="mb-6 rounded-2xl border bg-card p-4 shadow-soft">
         <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Add a task…" className="border-0 px-1 text-base shadow-none focus-visible:ring-0" />
