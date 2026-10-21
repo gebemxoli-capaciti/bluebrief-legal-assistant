@@ -1,10 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { CheckSquare, Mail, NotebookPen, Search, Moon, Sun, Scale, Briefcase } from "lucide-react";
+import { CheckSquare, Mail, NotebookPen, Search, Moon, Sun, Scale, Briefcase, CalendarDays } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
   { to: "/", label: "Tasks", icon: CheckSquare },
   { to: "/cases", label: "Cases", icon: Briefcase },
+  { to: "/planner", label: "Weekly Planner", icon: CalendarDays },
   { to: "/email", label: "Email Drafts", icon: Mail },
   { to: "/notes", label: "Meeting Notes", icon: NotebookPen },
   { to: "/research", label: "Research", icon: Search },
@@ -36,7 +37,7 @@ function ThemeToggle() {
 export function AppShell({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
-      <aside className="flex items-center justify-between border-b bg-sidebar px-4 py-3 md:sticky md:top-0 md:h-screen md:w-60 md:flex-col md:items-stretch md:justify-start md:border-b-0 md:border-r md:px-4 md:py-6">
+      <aside className="flex flex-wrap items-center justify-between gap-y-2 border-b bg-sidebar px-4 py-3 md:sticky md:top-0 md:h-screen md:w-60 md:shrink-0 md:flex-col md:flex-nowrap md:items-stretch md:justify-start md:border-b-0 md:border-r md:px-4 md:py-6">
         <div className="flex items-center gap-2 md:mb-8 md:px-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-calm text-primary-foreground">
             <Scale className="h-4 w-4" />
@@ -48,6 +49,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Link
               key={to}
               to={to}
+              aria-label={label}
+              title={label}
               activeOptions={{ exact: true }}
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-sidebar-foreground transition-colors hover:bg-sidebar-accent"
               activeProps={{ className: "bg-sidebar-accent text-sidebar-accent-foreground font-medium" }}
@@ -59,7 +62,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </nav>
         <ThemeToggle />
       </aside>
-      <main className="flex-1 px-5 py-8 md:px-12 md:py-12">
+      <main className="min-w-0 flex-1 px-5 py-8 md:px-12 md:py-12">
         <div className="mx-auto max-w-4xl">{children}</div>
       </main>
     </div>
