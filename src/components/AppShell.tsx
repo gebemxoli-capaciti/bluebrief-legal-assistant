@@ -41,7 +41,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-calm text-primary-foreground">
             <Scale className="h-4 w-4" />
           </div>
-          <span className="font-display text-xl font-semibold tracking-tight">Brief</span>
+          <span className="font-display text-xl font-semibold tracking-tight">ParaLex</span>
         </div>
         <nav className="flex gap-1 md:flex-1 md:flex-col">
           {NAV.map(({ to, label, icon: Icon }) => (

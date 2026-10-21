@@ -13,9 +13,9 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "Brief — Task Manager for Paralegals" },
+      { title: "ParaLex — Task Manager for Paralegals" },
       { name: "description", content: "A calm task manager with AI email drafting, meeting summaries and legal research for paralegals." },
-      { property: "og:title", content: "Brief — Task Manager for Paralegals" },
+      { property: "og:title", content: "ParaLex — Task Manager for Paralegals" },
       { property: "og:description", content: "A calm task manager with AI tools built for paralegals." },
     ],
   }),
