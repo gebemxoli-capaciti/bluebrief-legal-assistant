@@ -7,7 +7,10 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const Route = createFileRoute("/")({
-  validateSearch: (s: Record<string, unknown>): { matter?: string } => (typeof s.matter === "string" && s.matter ? { matter: s.matter } : {}),
+  validateSearch: (s: Record<string, unknown>): { matter?: string } => {
+    const m = s["matter"];
+    return typeof m === "string" && m ? { matter: m } : {};
+  },
   head: () => ({
     meta: [
       { title: "Brief — Task Manager for Paralegals" },
