@@ -9,6 +9,8 @@ export const Route = createFileRoute("/email")({
       { name: "description", content: "Draft professional client and court emails in seconds." },
       { property: "og:title", content: "Email Drafts — ParaLex for Paralegals" },
       { property: "og:description", content: "Draft professional client and court emails in seconds." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: () => (

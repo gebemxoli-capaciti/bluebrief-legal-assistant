@@ -9,6 +9,8 @@ export const Route = createFileRoute("/research")({
       { name: "description", content: "AI legal research assistant to jump-start your research." },
       { property: "og:title", content: "Research Assistant — ParaLex for Paralegals" },
       { property: "og:description", content: "AI legal research assistant to jump-start your research." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: () => (

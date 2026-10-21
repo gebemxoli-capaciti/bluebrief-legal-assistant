@@ -17,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "A calm task manager with AI email drafting, meeting summaries and legal research for paralegals." },
       { property: "og:title", content: "ParaLex — Task Manager for Paralegals" },
       { property: "og:description", content: "A calm task manager with AI tools built for paralegals." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Tasks,
@@ -72,6 +74,7 @@ function Tasks() {
   return (
     <>
       <PageHeader title={matterFilter ? `Tasks · ${matterFilter}` : "Tasks"} subtitle={`${openCount} open ${openCount === 1 ? "task" : "tasks"}${matterFilter ? " for this case." : " across your matters."}`} />
+      <Button asChild variant="outline" size="sm" className="mb-5"><Link to="/planner"><Calendar className="h-4 w-4" />Plan my week</Link></Button>
       {matterFilter && (
         <Link to="/" search={{}} className="-mt-6 mb-6 inline-block text-xs text-primary hover:underline">Show all tasks</Link>
       )}

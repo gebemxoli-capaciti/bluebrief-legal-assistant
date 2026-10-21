@@ -9,6 +9,8 @@ export const Route = createFileRoute("/notes")({
       { name: "description", content: "Turn raw meeting notes into summaries, action items and deadlines." },
       { property: "og:title", content: "Meeting Notes — ParaLex for Paralegals" },
       { property: "og:description", content: "Turn raw meeting notes into summaries, action items and deadlines." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: () => (

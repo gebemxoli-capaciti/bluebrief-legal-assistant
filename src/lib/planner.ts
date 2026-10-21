@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { addDays, format, parseISO } from "date-fns";
+import { addDays, format, isValid, parseISO } from "date-fns";
 
-const date = z.string().refine((value) => /^\d{4}-\d{2}-\d{2}$/.test(value) && format(parseISO(value), "yyyy-MM-dd") === value, "Choose a valid date");
+const date = z.string().refine((value) => /^\d{4}-\d{2}-\d{2}$/.test(value) && isValid(parseISO(value)) && format(parseISO(value), "yyyy-MM-dd") === value, "Choose a valid date");
 export const plannerTaskSchema = z.object({
   id: z.string(), title: z.string(), matter: z.string(), due: z.union([z.literal(""), date]),
   priority: z.enum(["high", "medium", "low"]), done: z.boolean(),

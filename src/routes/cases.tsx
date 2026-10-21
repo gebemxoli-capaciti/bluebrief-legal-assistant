@@ -62,6 +62,7 @@ function Cases() {
   return (
     <>
       <PageHeader title="Cases" subtitle={`${cases.length} active ${cases.length === 1 ? "case" : "cases"}.`} />
+      <Button asChild variant="outline" size="sm" className="mb-5"><Link to="/planner"><Calendar className="h-4 w-4" />Plan my week</Link></Button>
 
       <form onSubmit={add} className="mb-8 flex flex-wrap gap-2 rounded-2xl border bg-card p-4 shadow-soft">
         <Input value={name} onChange={(e) => setName(e.target.value)} placeholder="Case name (e.g. Smith v. Jones)" className="h-9 flex-1 min-w-48" />
