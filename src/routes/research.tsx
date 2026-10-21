@@ -5,9 +5,9 @@ import { AiTool } from "@/components/AiTool";
 export const Route = createFileRoute("/research")({
   head: () => ({
     meta: [
-      { title: "Research Assistant — Brief for Paralegals" },
+      { title: "Research Assistant — ParaLex for Paralegals" },
       { name: "description", content: "AI legal research assistant to jump-start your research." },
-      { property: "og:title", content: "Research Assistant — Brief for Paralegals" },
+      { property: "og:title", content: "Research Assistant — ParaLex for Paralegals" },
       { property: "og:description", content: "AI legal research assistant to jump-start your research." },
     ],
   }),

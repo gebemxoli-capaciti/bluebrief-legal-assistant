@@ -8,9 +8,9 @@ import { Input } from "@/components/ui/input";
 export const Route = createFileRoute("/cases")({
   head: () => ({
     meta: [
-      { title: "Case Dashboard — Brief" },
+      { title: "Case Dashboard — ParaLex" },
       { name: "description", content: "See every case with its tasks, deadlines and documents in one calm dashboard." },
-      { property: "og:title", content: "Case Dashboard — Brief" },
+      { property: "og:title", content: "Case Dashboard — ParaLex" },
       { property: "og:description", content: "Every case with its tasks, deadlines and documents in one place." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
