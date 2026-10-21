@@ -5,9 +5,9 @@ import { AiTool } from "@/components/AiTool";
 export const Route = createFileRoute("/email")({
   head: () => ({
     meta: [
-      { title: "Email Drafts — Brief for Paralegals" },
+      { title: "Email Drafts — ParaLex for Paralegals" },
       { name: "description", content: "Draft professional client and court emails in seconds." },
-      { property: "og:title", content: "Email Drafts — Brief for Paralegals" },
+      { property: "og:title", content: "Email Drafts — ParaLex for Paralegals" },
       { property: "og:description", content: "Draft professional client and court emails in seconds." },
     ],
   }),

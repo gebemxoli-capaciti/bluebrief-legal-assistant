@@ -5,9 +5,9 @@ import { AiTool } from "@/components/AiTool";
 export const Route = createFileRoute("/notes")({
   head: () => ({
     meta: [
-      { title: "Meeting Notes — Brief for Paralegals" },
+      { title: "Meeting Notes — ParaLex for Paralegals" },
       { name: "description", content: "Turn raw meeting notes into summaries, action items and deadlines." },
-      { property: "og:title", content: "Meeting Notes — Brief for Paralegals" },
+      { property: "og:title", content: "Meeting Notes — ParaLex for Paralegals" },
       { property: "og:description", content: "Turn raw meeting notes into summaries, action items and deadlines." },
     ],
   }),
